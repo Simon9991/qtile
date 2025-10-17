@@ -7,5 +7,5 @@ pkill picom
 picom --config "$HOME/.config/picom/picom.conf" &
 
 # wallpaper
-xwallpaper --zoom "$HOME/Pictures/wallpapers/current.jpg" &
+xwallpaper --zoom "$HOME/Pictures/wallpapers/current.png" &
 

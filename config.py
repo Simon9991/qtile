@@ -144,13 +144,13 @@ groups += [
 # =============== LAYOUTS ===============
 layout_theme = {
     "border_width": 0,
-    "margin": [0, 8, 0, 0],
+    "margin": [6, 6, 6, 6],
     "border_focus": C("accent"),
     "border_normal": C("black2"),
 }
 layouts = [
-    layout.MonadTall(**layout_theme),
     layout.Columns(**layout_theme),
+    layout.MonadTall(**layout_theme),
     layout.Max(),
 ]
 
@@ -184,8 +184,8 @@ screens = [
                     margin_x=6,
                     padding_y=1,
                     padding_x=6,
-                    borderwidth=2,
-                    rounded=True,
+                    # borderwidth=2,
+                    # rounded=True,
                     active=C("fg"),
                     inactive=C("muted"),
                     highlight_method="block",
