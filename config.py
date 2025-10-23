@@ -65,11 +65,15 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Quit Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons"), desc="Launcher"),
     # Screenshots (your commands preserved)
-    Key(["control"], "F12", lazy.spawn("sh -lc 'screenshot-area'"), desc="Shot area"),
-    Key(["control"], "Print", lazy.spawn("screenshot-full"), desc="Shot full"),
+    Key(["control"], "F12", lazy.spawn("/home/simon/.local/bin/screenshot-area"), desc="Shot area"),
+    Key(["control"], "Print", lazy.spawn("/home/simon/.local/bin/screenshot-full"), desc="Shot full"),
     # Audio (PipeWire)
     Key([mod], "F12", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")),
     Key([mod], "F11", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")),
+    # Media controls
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Previous track"),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Next track"),
     # Scratchpads
     Key(
         [mod],
