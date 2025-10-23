@@ -65,12 +65,11 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Quit Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons"), desc="Launcher"),
     # Screenshots (your commands preserved)
-    Key(["control"], "F12", lazy.spawn("screenshot-area"), desc="Shot area"),
+    Key(["control"], "F12", lazy.spawn("sh -lc 'screenshot-area'"), desc="Shot area"),
     Key(["control"], "Print", lazy.spawn("screenshot-full"), desc="Shot full"),
     # Audio (PipeWire)
     Key([mod], "F12", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")),
     Key([mod], "F11", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")),
-    Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
     # Scratchpads
     Key(
         [mod],
