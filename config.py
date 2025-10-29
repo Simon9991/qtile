@@ -289,9 +289,9 @@ screens = [
                 sep(),
                 widget.Wttr(
                     location={"Daejeon": "Daejeon"},
-                    format="%C %t %h %m %d",  # condition icon + temperature
+                    format="%C · %f · %p · %m %M",
                     units="m",
-                    update_interval=900,  # 15 minutes
+                    update_interval=600,  # 10 minutes
                     foreground=C("music"),
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn(
