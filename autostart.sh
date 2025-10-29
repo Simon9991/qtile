@@ -8,7 +8,7 @@ sleep 0.5
 picom --config "$HOME/.config/picom/picom.conf" &
 
 # wallpaper
-xwallpaper --zoom "$HOME/Pictures/wallpapers/current.png" &
+xwallpaper --zoom "$HOME/Pictures/wallpapers/current.jpg" &
 
 # clipboard manager
 pkill greenclip

@@ -20,6 +20,8 @@ colors = {
     "yellow": "#e0af68",
     "magenta": "#ad8ee6",
     "cyan": "#0db9d7",
+    "music": "#0891b2",
+    "music2": "#5e81ac",
     "line": "#444b6a",
     "black2": "#24283b",
 }
@@ -283,6 +285,19 @@ screens = [
                     format="  {uf}{m} free",
                     foreground=C("magenta"),
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("notify-disk")},
+                ),
+                sep(),
+                widget.Wttr(
+                    location={"Daejeon": "Daejeon"},
+                    format="%C %t %h %m %d",  # condition icon + temperature
+                    units="m",
+                    update_interval=900,  # 15 minutes
+                    foreground=C("music"),
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(
+                            "xdg-open https://wttr.in/Daejeon"
+                        )
+                    },
                 ),
                 sep(),
                 widget.Volume(
