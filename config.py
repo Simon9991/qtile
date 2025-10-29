@@ -65,8 +65,19 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Quit Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons"), desc="Launcher"),
     # Screenshots (your commands preserved)
-    Key(["control"], "F12", lazy.spawn("/home/simon/.local/bin/screenshot-area"), desc="Shot area"),
-    Key(["control"], "Print", lazy.spawn("/home/simon/.local/bin/screenshot-full"), desc="Shot full"),
+    Key(
+        ["control"],
+        "F12",
+        lazy.spawn("/home/simon/.local/bin/screenshot-area"),
+        desc="Shot area",
+    ),
+    Key(
+        ["control"],
+        "F12",
+        lazy.spawn("/home/simon/.local/bin/screenshot-area"),
+        desc="Shot area",
+    ),
+    Key([mod, "control"], "Print", lazy.spawn("peek"), desc="Screen recorder"),
     # Audio (PipeWire)
     Key([mod], "F12", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")),
     Key([mod], "F11", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")),
@@ -246,10 +257,6 @@ screens = [
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("notify-disk")},
                 ),
                 sep(),
-                widget.Net(
-                    format="󰓅  {down} ↓↑ {up}", foreground=C("cyan"), update_interval=2
-                ),
-                sep(),
                 widget.Volume(
                     fmt="  {}",
                     foreground=C("accent"),
@@ -298,7 +305,7 @@ auto_fullscreen = True
 auto_minimize = True
 focus_on_window_activation = "smart"
 wl_input_rules = None
-wl_xcursor_theme = None
+wl_xcursor_theme = "Bibata-Modern-Classic"
 wl_xcursor_size = 24
 wmname = "LG3D"
 
