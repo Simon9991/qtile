@@ -64,6 +64,7 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Quit Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons"), desc="Launcher"),
+    Key([mod], "v", lazy.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"), desc="Clipboard history"),
     # Screenshots (your commands preserved)
     Key(
         ["control"],

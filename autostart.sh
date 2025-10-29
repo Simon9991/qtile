@@ -10,3 +10,7 @@ picom --config "$HOME/.config/picom/picom.conf" &
 # wallpaper
 xwallpaper --zoom "$HOME/Pictures/wallpapers/current.png" &
 
+# clipboard manager
+pkill greenclip
+greenclip daemon &
+
