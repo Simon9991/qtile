@@ -187,6 +187,23 @@ def sep(pad=6):
     return widget.Sep(linewidth=1, padding=pad, foreground=C("line"), size_percent=70)
 
 
+# Workspace icon mapping
+workspace_icons = {
+    "1": "󰈹",  # Browser
+    "2": "",  # Code
+    "3": "",  # Terminal
+    "4": "",  # Files
+    "5": "󰙯",  # Social
+    "6": "",  # Music
+    "7": "",  # Games
+    "8": "",  # Video
+    "9": "",  # Misc
+}
+
+def get_workspace_icon(text):
+    """Convert workspace number to icon"""
+    return workspace_icons.get(text, text)
+
 screens = [
     Screen(
         top=bar.Bar(
@@ -209,6 +226,7 @@ screens = [
                     other_screen_border=C("magenta"),
                     disable_drag=True,
                     background=C("bg_alt"),
+                    parse_text=get_workspace_icon,
                 ),
                 widget.Spacer(length=6),
                 sep(),
