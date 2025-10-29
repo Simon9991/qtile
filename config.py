@@ -64,7 +64,14 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Quit Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons"), desc="Launcher"),
-    Key([mod], "v", lazy.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"), desc="Clipboard history"),
+    Key(
+        [mod],
+        "v",
+        lazy.spawn(
+            "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+        ),
+        desc="Clipboard history",
+    ),
     # Screenshots (your commands preserved)
     Key(
         ["control"],
@@ -201,9 +208,11 @@ workspace_icons = {
     "9": "",  # Misc
 }
 
+
 def get_workspace_icon(text):
     """Convert workspace number to icon"""
     return workspace_icons.get(text, text)
+
 
 screens = [
     Screen(
@@ -259,7 +268,7 @@ screens = [
                 ),
                 sep(),
                 widget.Memory(
-                    format="  {MemUsed:.0f}{mm}",
+                    format="  {MemPercent}%",
                     measure_mem="G",
                     foreground=C("green"),
                     mouse_callbacks={
