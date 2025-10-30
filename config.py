@@ -74,7 +74,7 @@ keys = [
         ),
         desc="Clipboard history",
     ),
-    # Screenshots (your commands preserved)
+    # Screenshots
     Key(
         ["control"],
         "F12",
@@ -108,6 +108,24 @@ keys = [
         lazy.group["scratch"].dropdown_toggle("btop"),
         desc="btop scratch",
     ),
+    Key(
+        [mod],
+        "c",
+        lazy.group["scratch"].dropdown_toggle("calc"),
+        desc="Calculator",
+    ),
+    Key(
+        [mod],
+        "n",
+        lazy.group["scratch"].dropdown_toggle("notes"),
+        desc="Notes/Todo",
+    ),
+    Key(
+        [mod],
+        "m",
+        lazy.group["scratch"].dropdown_toggle("music"),
+        desc="Music player",
+    ),
 ]
 
 # Optional: Wayland VT switch guard (harmless on X11)
@@ -122,7 +140,11 @@ for vt in range(1, 8):
     )
 
 # =============== GROUPS ===============
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "12345678"]
+# Workspace 9: Discord/Vesktop auto-assign
+groups.append(
+    Group("9", matches=[Match(wm_class=["discord", "vesktop", "Discord", "Vesktop"])])
+)
 for i in groups:
     keys.extend(
         [
@@ -159,6 +181,36 @@ groups += [
                 width=0.7,
                 x=0.15,
                 y=0.05,
+                on_focus_lost_hide=True,
+            ),
+            DropDown(
+                "calc",
+                "qalculate-gtk",
+                opacity=0.95,
+                height=0.5,
+                width=0.4,
+                x=0.3,
+                y=0.2,
+                on_focus_lost_hide=True,
+            ),
+            DropDown(
+                "notes",
+                f"{myTerm} -e nvim /home/simon/notes.md",
+                opacity=0.95,
+                height=0.6,
+                width=0.6,
+                x=0.2,
+                y=0.15,
+                on_focus_lost_hide=True,
+            ),
+            DropDown(
+                "music",
+                f"{myTerm} -e sh -c 'playerctl metadata --format \"Now playing: {{artist}} - {{title}}\" && exec zsh'",
+                opacity=0.95,
+                height=0.5,
+                width=0.5,
+                x=0.25,
+                y=0.2,
                 on_focus_lost_hide=True,
             ),
         ],
@@ -207,7 +259,19 @@ workspace_icons = {
     "6": "",  # Music
     "7": "",  # Games
     "8": "",  # Video
-    "9": "",  # Misc
+    "9": "󰙯",  # Discord/Chat (auto-assigned)
+}
+
+# App-specific icons for dynamic labeling
+app_icons = {
+    "discord": "󰙯",
+    "vesktop": "󰙯",
+    "google-chrome": "󰊯",
+    "chrome": "󰊯",
+    "firefox": "",
+    "obsidian": "",
+    "code": "",
+    "zed": "",
 }
 
 
