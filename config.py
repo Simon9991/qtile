@@ -355,7 +355,7 @@ screens = [
                     location={"Daejeon": "Daejeon"},
                     format="%C · %f · %p · %m %M",
                     units="m",
-                    update_interval=600,  # 10 minutes
+                    update_interval=300,  # 5 minutes
                     foreground=C("music"),
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn(
